@@ -10,10 +10,10 @@ import SwiftUI
 struct OrderListView: View {
     @State var orderList: OrderList
     @State var multiSelections = Set<UUID>()
-    @Environment(\.editMode) var editMode
+    @State var editMode: EditMode = .inactive
     
-    var addAction: (() -> Void)?
-    var deleteAction: (() -> Void)?
+    var randomAddAction: ((OrderList) -> OrderList)?
+    var deleteAction: ((OrderList, Set<UUID>) -> OrderList)?
     
     var body: some View {
         VStack {
@@ -26,23 +26,27 @@ struct OrderListView: View {
             }
             .listStyle(.plain)
             
-            if editMode?.wrappedValue.isEditing == true {
-                Button(action: {
-                    deleteAction?()
-                    editMode?.wrappedValue = .inactive
-                }) {
-                    Text("オーダー削除(\(multiSelections.count)件)")
+            HStack {
+                if editMode.isEditing == true {
+                    Button(action: {
+                        guard let newOrderList = deleteAction?(orderList, multiSelections) else { return }
+                        orderList = newOrderList
+                        editMode = .inactive
+                    }) {
+                        Text("オーダー削除(\(multiSelections.count)件)")
+                    }
+                } else {
+                    Button(action: {
+                        guard let newOrderList = randomAddAction?(orderList) else { return }
+                        orderList = newOrderList
+                    }) {
+                        Text("ランダム追加")
+                    }
                 }
-            } else {
-                Button(action: {
-                    addAction?()
-                }) {
-                    Text("ランダム追加")
-                }
+                Spacer()
+                EditButton()
             }
         }
-        .toolbar {
-            EditButton()
-        }
+        .environment(\.editMode, $editMode)
     }
 }

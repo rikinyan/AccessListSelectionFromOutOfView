@@ -16,15 +16,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         orderListView = OrderListView(
             orderList: OrderList(items: []),
-            addAction: { [weak self] in
-                guard let self else { return }
-                self.orderListView.orderList = self.orderListView.orderList.add(self.randomOrder())
+            randomAddAction: { [weak self] orderList in
+                guard let self else { return orderList }
+                return orderList.add(self.randomOrder())
             },
-            deleteAction: { [weak self] in
-                guard let self else { return }
-                self.orderListView.orderList = self.orderListView.orderList.delete(
-                    self.orderListView.multiSelections
-                )
+            deleteAction: { orderList, deletedItemIds in
+                orderList.delete(deletedItemIds)
             }
         )
         

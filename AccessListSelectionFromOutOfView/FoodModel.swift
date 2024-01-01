@@ -56,7 +56,7 @@ struct OrderList {
     func delete(_ indice: Set<UUID>) -> OrderList {
         let newItems = items
             .filter { item in
-                indice.contains(item.id)
+                !indice.contains(item.id)
             }
         
         return OrderList(items: newItems)
