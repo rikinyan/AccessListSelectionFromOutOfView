@@ -13,6 +13,8 @@
 		A01214502B42C19600FCDA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A012144E2B42C19600FCDA7D /* Main.storyboard */; };
 		A01214522B42C19900FCDA7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A01214512B42C19900FCDA7D /* Assets.xcassets */; };
 		A01214552B42C19900FCDA7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01214532B42C19900FCDA7D /* LaunchScreen.storyboard */; };
+		A012145D2B42C1D700FCDA7D /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012145C2B42C1D700FCDA7D /* FoodModel.swift */; };
+		A012145F2B42C22A00FCDA7D /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A012145E2B42C22A00FCDA7D /* OrderListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A01214512B42C19900FCDA7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A01214542B42C19900FCDA7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A01214562B42C19900FCDA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A012145C2B42C1D700FCDA7D /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		A012145E2B42C22A00FCDA7D /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		A01214472B42C19600FCDA7D /* AccessListSelectionFromOutOfView */ = {
 			isa = PBXGroup;
 			children = (
+				A012145E2B42C22A00FCDA7D /* OrderListView.swift */,
+				A012145C2B42C1D700FCDA7D /* FoodModel.swift */,
 				A01214482B42C19600FCDA7D /* AppDelegate.swift */,
 				A012144A2B42C19600FCDA7D /* SceneDelegate.swift */,
 				A012144C2B42C19600FCDA7D /* ViewController.swift */,
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A012145F2B42C22A00FCDA7D /* OrderListView.swift in Sources */,
 				A012144D2B42C19600FCDA7D /* ViewController.swift in Sources */,
 				A01214492B42C19600FCDA7D /* AppDelegate.swift in Sources */,
 				A012144B2B42C19600FCDA7D /* SceneDelegate.swift in Sources */,
+				A012145D2B42C1D700FCDA7D /* FoodModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
